@@ -1,15 +1,18 @@
-import './App.css';
-import { Countdown } from './Countdown/Countdown';
 import { useEffect } from 'react';
 
-function App() {
+import { Countdown } from './Countdown/Countdown';
+import { Player } from './Player/Player';
+import { TIMER_STATUS } from './constants';
 
+import './App.css';
+
+function App() {
   useEffect(() => {
     const listener = (event) => {
       if (!event.data?.timerStatus) {
         return;
       }
-      if (event.data.timerStatus === 'finished') {
+      if (event.data.timerStatus === TIMER_STATUS.FINISHED) {
         document.body.classList.add('finished');
       }
     };
@@ -19,7 +22,10 @@ function App() {
   }, []);
 
   return (
-    <Countdown />
+    <>
+      <Player />
+      <Countdown />
+    </>
   );
 }
 
