@@ -1,13 +1,47 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Digital';
+  src: url('../public/fonts/digital-7.ttf') format('truetype');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    font-size: 8px;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #2a3038;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+body.finished {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: blinking;
+}
+
+@keyframes blinking {
+  0% {
+    background: #2a3038;
+  }
+
+  50% {
+    background: #c51942;
+  }
 }
