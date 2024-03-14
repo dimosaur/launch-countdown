@@ -1,0 +1,26 @@
+.root {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  width: 95%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  opacity: 0;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-delay: 1.5s;
+  animation-name: imageDelay;
+}
+
+@keyframes imageDelay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

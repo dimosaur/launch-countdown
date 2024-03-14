@@ -20,13 +20,16 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  position: relative;
   background: #2a3038;
-  min-height: 100vh;
+  height: 100dvh;
+  width: 100dvw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
   text-align: center;
 }
 
