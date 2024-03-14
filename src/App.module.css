@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+:global(.finished) .content {
+    display: none;
+}
+
+.terrorists {
+    display: none;
+}
+
+:global(.finished) .terrorists {
+    display: block;
+}
+
+.terroristsImage {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-delay: 1.5s;
+    animation-name: imageDelay;
+}
+
+@keyframes imageDelay {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
