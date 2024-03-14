@@ -33,7 +33,10 @@ export const Player = () => {
           const nextLength = prevCode.length + 1;
           if (nextLength === CODE.length) {
             setTimeout(() => {
-              window.postMessage({ updateTimerStatus: TIMER_STATUS.PENDING }, '*');
+              window.postMessage(
+                { updateTimerStatus: TIMER_STATUS.PENDING },
+                '*',
+              );
               setStatus(PLANTING_STATUSES.FINISHED);
             }, 1600);
             clearInterval(timerId);
@@ -69,11 +72,9 @@ export const Player = () => {
 
   return (
     <div
-      className={
-        clsx(styles.overflow, {
-          [styles.overflowClear]: status === PLANTING_STATUSES.FINISHED,
-        })
-      }
+      className={clsx(styles.overflow, {
+        [styles.overflowClear]: status === PLANTING_STATUSES.FINISHED,
+      })}
     >
       {status === PLANTING_STATUSES.IDLE && (
         <img
@@ -83,7 +84,9 @@ export const Player = () => {
           onClick={handleClick}
         />
       )}
-      {status === PLANTING_STATUSES.STARTED && <div className={styles.code}>{code}</div>}
+      {status === PLANTING_STATUSES.STARTED && (
+        <div className={styles.code}>{code}</div>
+      )}
     </div>
   );
 };

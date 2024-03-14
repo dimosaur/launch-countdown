@@ -4,7 +4,7 @@ import { useCountdown } from './countdown.hook';
 
 import styles from './Countdown.module.css';
 
-const dateTo = new Date('2024-03-18T08:00:00Z');
+const dateTo = new Date('2024-03-14T16:10:00Z');
 
 export const Countdown = () => {
   const timer = useCountdown(dateTo);
