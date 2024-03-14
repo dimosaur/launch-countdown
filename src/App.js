@@ -4,7 +4,7 @@ import { Countdown } from './Countdown/Countdown';
 import { Player } from './Player/Player';
 import { TIMER_STATUS } from './constants';
 
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   useEffect(() => {
@@ -23,8 +23,11 @@ function App() {
 
   return (
     <>
-      <Player />
-      <Countdown />
+      <div className={styles.content}>
+        <Player />
+        <Countdown />
+      </div>
+      <img className={styles.terrorists} src="/teroristebi.png" alt=""/>
     </>
   );
 }
