@@ -10,6 +10,8 @@ const CODE = '7355608';
 const planted = new Audio('/audio/cs-bomb-planted.mp3');
 const ticking = new Audio('/audio/cs-bomb-ticking.mp3');
 const explosion = new Audio('/audio/cs-bomb-explosion.mp3');
+window.ticking = ticking;
+window.explosion = explosion;
 
 planted.addEventListener('ended', () => {
   ticking.loop = true;
@@ -52,8 +54,11 @@ export const Player = () => {
       }
       if (event.data.timerStatus === 'pending') {
         if (event.data.secondsLeft < 40) {
-          ticking.pause();
-          explosion.play();
+          ticking.addEventListener('ended', () => {
+            explosion.currentTime = 1;
+            explosion.play();
+          });
+          ticking.loop = false;
         }
       }
     };
