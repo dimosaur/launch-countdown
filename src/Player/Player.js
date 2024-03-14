@@ -33,12 +33,12 @@ export const Player = () => {
             setTimeout(() => {
               window.postMessage({ updateTimerStatus: TIMER_STATUS.PENDING }, '*');
               setStatus(PLANTING_STATUSES.FINISHED);
-            }, 1500);
+            }, 1600);
             clearInterval(timerId);
           }
           return CODE.slice(0, nextLength);
         });
-      }, 350);
+      }, 300);
     }, 300);
   };
 
