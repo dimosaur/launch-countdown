@@ -1,11 +1,8 @@
-export const PLANTING_STATUSES = {
+export const FLOW_STATUS = {
   IDLE: 'idle',
-  STARTED: 'started',
+  START: 'start',
+  BOMB_PLANTED: 'bomb_planted',
   FINISHED: 'finished',
 };
 
-export const TIMER_STATUS = {
-  IDLE: 'idle',
-  PENDING: 'pending',
-  FINISHED: 'finished',
-};
+export const LAUNCH_DATE = new Date('2024-03-18T08:00:00Z');

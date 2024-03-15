@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 
+import { FLOW_STATUS } from './constants';
 import {
   listenStartTicking,
   postCountdownTickMessage,
+  postFlowStatusMessage,
 } from './helpers/post-message.helper';
 
 export const CountdownDispatcher = () => {
@@ -13,6 +15,7 @@ export const CountdownDispatcher = () => {
       postCountdownTickMessage(secondsLeft);
       if (secondsLeft < 1) {
         clearInterval(timerId);
+        postFlowStatusMessage(FLOW_STATUS.FINISHED);
       }
     };
 
