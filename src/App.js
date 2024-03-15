@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 
-import { Countdown } from './Countdown/Countdown';
-import { Player } from './Player/Player';
-import Video from './Video/Video';
+import { Terrorists } from './Terrorists';
+import { Explosion } from './Explosion';
+import { Player } from './Player';
+import { Countdown } from './Countdown';
 import { TIMER_STATUS } from './constants';
 
 import styles from './App.module.css';
 
 function App() {
-  const [isFinished, setIsFinished] = useState(false);
+  const [isFinished, setIsFinished] = useState(true);
 
   useEffect(() => {
     const listener = (event) => {
@@ -32,15 +33,10 @@ function App() {
         <Countdown />
       </div>
       {isFinished && (
-        <div className={styles.terrorists}>
-          <img
-            className={styles.terroristsImage}
-            src="/teroristebi.png"
-            alt=""
-          />
-          <Video />
-          <Video mirrored />
-        </div>
+        <>
+          <Terrorists />
+          <Explosion />
+        </>
       )}
     </>
   );
