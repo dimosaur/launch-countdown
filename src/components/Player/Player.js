@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 import { useEffect, useState } from 'react';
 
-import { PLANTING_STATUSES, TIMER_STATUS } from '../constants';
+import { PLANTING_STATUSES, TIMER_STATUS } from '../../constants';
 
 import styles from './Player.module.css';
 

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import { TIMER_STATUS } from '../constants';
+import { TIMER_STATUS } from '../../constants';
 
 const SEC_IN_MS = 1000;
 const MIN_IN_MS = SEC_IN_MS * 60;
 const HOUR_IN_MS = MIN_IN_MS * 60;
 const DAY_IN_MS = HOUR_IN_MS * 24;
-const formatNumber = (num) => num < 10 ? `0${num}` : num;
+const formatNumber = (num) => (num < 10 ? `0${num}` : num);
 
 const initialData = {
   days: 0,
@@ -42,11 +42,21 @@ export const useCountdown = (dateTo) => {
       );
 
       const days = Math.floor(distance / DAY_IN_MS);
-      const hours = formatNumber(Math.floor((distance % DAY_IN_MS) / HOUR_IN_MS));
-      const minutes = formatNumber(Math.floor((distance % HOUR_IN_MS) / MIN_IN_MS));
-      const seconds = formatNumber(Math.floor((distance % MIN_IN_MS) / SEC_IN_MS));
+      const hours = formatNumber(
+        Math.floor((distance % DAY_IN_MS) / HOUR_IN_MS),
+      );
+      const minutes = formatNumber(
+        Math.floor((distance % HOUR_IN_MS) / MIN_IN_MS),
+      );
+      const seconds = formatNumber(
+        Math.floor((distance % MIN_IN_MS) / SEC_IN_MS),
+      );
 
-      setTimer({ days, time: `${hours}:${minutes}:${seconds}`, isFinished: false });
+      setTimer({
+        days,
+        time: `${hours}:${minutes}:${seconds}`,
+        isFinished: false,
+      });
     };
 
     calculate();

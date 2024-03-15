@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 
+import { TIMER_STATUS } from '../constants';
+
 import { Terrorists } from './Terrorists';
 import { Explosion } from './Explosion';
 import { Player } from './Player';
 import { Countdown } from './Countdown';
-import { TIMER_STATUS } from './constants';
 
 import styles from './App.module.css';
 
