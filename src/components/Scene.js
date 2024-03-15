@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 
 import { TIMER_STATUS } from '../constants';
 
-import { Terrorists } from './Terrorists';
-import { Explosion } from './Explosion';
 import { Player } from './Player';
 import { Countdown } from './Countdown';
+import { Terrorists } from './Terrorists';
+import { Explosion } from './Explosion';
 
-import styles from './App.module.css';
+import styles from './Scene.module.css';
 
-function App() {
-  const [isFinished, setIsFinished] = useState(true);
+export const Scene = () => {
+  const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
     const listener = (event) => {
@@ -41,6 +41,4 @@ function App() {
       )}
     </>
   );
-}
-
-export default App;
+};
