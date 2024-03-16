@@ -44,8 +44,10 @@ export const Sounds = () => {
         return;
       }
       const difference = EXPLORATION_TIME - explosion.currentTime - seconds;
+
       if (Math.abs(difference) > 0.03) {
-        explosion.playbackRate = 1 + difference / 5;
+        const adjusted = Math.min(Math.abs(difference / 5), 0.25);
+        explosion.playbackRate = 1 + Math.sign(difference) * adjusted;
       } else {
         explosion.playbackRate = 1;
       }
