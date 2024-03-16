@@ -23,7 +23,7 @@ export const Sounds = () => {
       }
     });
     listenCountdownTick((secondsLeft) => {
-      if (secondsLeft < 42) {
+      if (secondsLeft < 43) {
         ticking.addEventListener('ended', () => {
           explosion.play();
         });
@@ -44,8 +44,8 @@ export const Sounds = () => {
         return;
       }
       const difference = EXPLORATION_TIME - explosion.currentTime - seconds;
-      if (Math.abs(difference) > 0.05) {
-        explosion.playbackRate = 1 + difference / 7;
+      if (Math.abs(difference) > 0.03) {
+        explosion.playbackRate = 1 + difference / 5;
       } else {
         explosion.playbackRate = 1;
       }
