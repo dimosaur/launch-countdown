@@ -19,9 +19,12 @@ export const Sounds = () => {
           ticking.play();
         });
       }
+      if (status === FLOW_STATUS.FINISHED) {
+        explosion.currentTime = 39;
+      }
     });
     listenCountdownTick((secondsLeft) => {
-      if (secondsLeft < 41) {
+      if (secondsLeft < 40) {
         ticking.addEventListener('ended', () => {
           explosion.currentTime = 1;
           explosion.play();
