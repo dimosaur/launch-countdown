@@ -68,7 +68,7 @@ export const Countdown = () => {
 
     listenFlowStatus((status) => {
       if (status === FLOW_STATUS.BOMB_PLANTED) {
-        postStartTickingMessage(new Date());
+        postStartTickingMessage(LAUNCH_DATE);
       }
     });
   }, []);
