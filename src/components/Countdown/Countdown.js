@@ -32,7 +32,7 @@ export const Countdown = () => {
         return;
       }
 
-      if (secondsLeft <= 16) {
+      if (secondsLeft <= 16 && secondsLeft / 34 > 0) {
         setTimerBlinkingStage(secondsLeft / 34);
         return;
       }

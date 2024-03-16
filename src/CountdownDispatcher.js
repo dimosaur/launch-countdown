@@ -15,7 +15,6 @@ export const CountdownDispatcher = () => {
       postCountdownTickMessage(secondsLeft);
       if (secondsLeft < 1) {
         clearInterval(timerId);
-        postFlowStatusMessage(FLOW_STATUS.FINISHED);
       }
     };
 

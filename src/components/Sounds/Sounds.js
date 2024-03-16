@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import {
   listenCountdownTick,
   listenFlowStatus,
+  postFlowStatusMessage,
 } from '../../helpers/post-message.helper';
 import { FLOW_STATUS } from '../../constants';
 
@@ -19,17 +20,22 @@ export const Sounds = () => {
           ticking.play();
         });
       }
-      if (status === FLOW_STATUS.FINISHED) {
-        explosion.currentTime = 39;
-      }
     });
     listenCountdownTick((secondsLeft) => {
-      if (secondsLeft < 40) {
+      if (secondsLeft < 42) {
         ticking.addEventListener('ended', () => {
           explosion.currentTime = 1;
           explosion.play();
         });
         ticking.loop = false;
+      }
+    });
+
+    let run = false;
+    explosion.addEventListener('timeupdate', (event) => {
+      if (explosion.currentTime > 39) {
+        run = true;
+        run && postFlowStatusMessage(FLOW_STATUS.FINISHED);
       }
     });
   }, []);
