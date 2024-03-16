@@ -77,7 +77,7 @@ export const Countdown = () => {
     <>
       <h1 className={styles.title}>Retail Sportsbook launch</h1>
       <p className={clsx(styles.text, styles.day)}>
-        <span className={styles.dayWrapper}>{days}</span> days
+        <span className={styles.dayWrapper}>{days}</span> {days === 1 ? 'day' : 'days'}
       </p>
       <p
         className={clsx(styles.text, styles.timer, {
