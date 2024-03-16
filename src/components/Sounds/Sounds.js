@@ -21,7 +21,7 @@ export const Sounds = () => {
       }
     });
     listenCountdownTick((secondsLeft) => {
-      if (secondsLeft < 42) {
+      if (secondsLeft < 41) {
         ticking.addEventListener('ended', () => {
           explosion.currentTime = 1;
           explosion.play();

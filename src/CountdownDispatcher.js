@@ -23,7 +23,7 @@ export const CountdownDispatcher = () => {
       const now = new Date();
       const isLessThanMinute = dateTo.getTime() - now.getTime() < 60 * 1000;
       if (isLessThanMinute) {
-        dateTo = new Date(now.getTime() + 60 * 1000);
+        dateTo = new Date(now.getTime() + 59 * 1000);
       }
 
       tickCountdown(dateTo);
