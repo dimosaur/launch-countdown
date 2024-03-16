@@ -1,0 +1,49 @@
+.title {
+  font-size: 4rem;
+  color: #fff;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.text {
+  font-style: normal;
+  margin: 0;
+  color: #00caaf;
+}
+
+.day {
+  font-size: 9rem;
+}
+
+.timer,
+.dayWrapper {
+  font-size: 10rem;
+  font-family: 'Digital', sans-serif;
+}
+
+.blinkingTimer {
+  color: #c51942;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: blinkingTimerRed;
+}
+
+@keyframes blinkingTimer {
+  0% {
+    color: #00caaf;
+  }
+
+  50% {
+    color: #fff;
+  }
+}
+
+@keyframes blinkingTimerRed {
+  0%, 55% {
+    color: #c51942;
+  }
+
+  60%, 95% {
+    color: transparent;
+  }
+}

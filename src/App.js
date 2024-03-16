@@ -1,49 +1,11 @@
-import { useEffect, useState } from 'react';
+import { CountdownDispatcher } from './CountdownDispatcher';
+import { Scene } from './components';
 
-import { Countdown } from './Countdown/Countdown';
-import { Player } from './Player/Player';
-import Video from './Video/Video';
-import { TIMER_STATUS } from './constants';
-
-import styles from './App.module.css';
-
-function App() {
-  const [isFinished, setIsFinished] = useState(false);
-
-  useEffect(() => {
-    const listener = (event) => {
-      if (!event.data?.timerStatus) {
-        return;
-      }
-      if (event.data.timerStatus === TIMER_STATUS.FINISHED) {
-        document.body.classList.add('finished');
-        setIsFinished(true);
-      }
-    };
-
-    window.addEventListener('message', listener);
-    return () => window.removeEventListener('message', listener);
-  }, []);
-
+export const App = () => {
   return (
     <>
-      <div className={styles.content}>
-        <Player />
-        <Countdown />
-      </div>
-      {isFinished && (
-        <div className={styles.terrorists}>
-          <img
-            className={styles.terroristsImage}
-            src="/teroristebi.png"
-            alt=""
-          />
-          <Video />
-          <Video mirrored />
-        </div>
-      )}
+      <CountdownDispatcher />
+      <Scene />
     </>
   );
-}
-
-export default App;
+};
