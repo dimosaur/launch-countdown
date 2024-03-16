@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
 
-import { FLOW_STATUS } from './constants';
 import {
   listenStartTicking,
   postCountdownTickMessage,
-  postFlowStatusMessage,
 } from './helpers/post-message.helper';
 
 export const CountdownDispatcher = () => {

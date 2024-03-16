@@ -8,9 +8,7 @@ import {
   postStartTickingMessage,
 } from '../../helpers/post-message.helper';
 import { formatDistance } from '../../helpers/format-distance.helper';
-import { FLOW_STATUS } from '../../constants';
-
-const dateTo = new Date('2024-03-18T08:00:00Z');
+import { FLOW_STATUS, LAUNCH_DATE } from '../../constants';
 
 const initialData = {
   days: 0,
@@ -32,7 +30,7 @@ export const Countdown = () => {
         return;
       }
 
-      if (secondsLeft <= 16 && secondsLeft / 34 > 0) {
+      if (secondsLeft <= 18 && secondsLeft / 34 > 0) {
         setTimerBlinkingStage(secondsLeft / 34);
         return;
       }
@@ -42,21 +40,21 @@ export const Countdown = () => {
         return;
       }
 
-      if (secondsLeft <= 28) {
+      if (secondsLeft <= 24) {
         if (timerBlinkingStageRef.current !== 0.6) {
           setTimerBlinkingStage(0.6);
         }
         return;
       }
 
-      if (secondsLeft <= 30) {
+      if (secondsLeft <= 29) {
         if (timerBlinkingStageRef.current !== 0.75) {
           setTimerBlinkingStage(0.75);
         }
         return;
       }
 
-      if (secondsLeft <= 33) {
+      if (secondsLeft <= 35) {
         if (timerBlinkingStageRef.current !== 0.9) {
           setTimerBlinkingStage(0.9);
         }

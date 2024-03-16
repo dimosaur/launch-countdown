@@ -4,11 +4,12 @@ import {
   listenFlowStatus,
   postFlowStatusMessage,
 } from '../../helpers/post-message.helper';
-import { FLOW_STATUS } from '../../constants';
+import { EXPLORATION_TIME, FLOW_STATUS } from '../../constants';
 
 const planted = new Audio('/audio/cs-bomb-planted.mp3');
 const ticking = new Audio('/audio/cs-bomb-ticking.mp3');
 const explosion = new Audio('/audio/cs-bomb-explosion.mp3');
+window.explosion = explosion;
 
 export const Sounds = () => {
   useEffect(() => {
@@ -24,7 +25,6 @@ export const Sounds = () => {
     listenCountdownTick((secondsLeft) => {
       if (secondsLeft < 42) {
         ticking.addEventListener('ended', () => {
-          explosion.currentTime = 1;
           explosion.play();
         });
         ticking.loop = false;
@@ -33,9 +33,21 @@ export const Sounds = () => {
 
     let run = false;
     explosion.addEventListener('timeupdate', (event) => {
-      if (explosion.currentTime > 39) {
+      if (!run && explosion.currentTime > EXPLORATION_TIME) {
         run = true;
-        run && postFlowStatusMessage(FLOW_STATUS.FINISHED);
+        postFlowStatusMessage(FLOW_STATUS.FINISHED);
+      }
+    });
+
+    listenCountdownTick((seconds) => {
+      if (explosion.currentTime === 0) {
+        return;
+      }
+      const difference = EXPLORATION_TIME - explosion.currentTime - seconds;
+      if (Math.abs(difference) > 0.05) {
+        explosion.playbackRate = 1 + difference / 7;
+      } else {
+        explosion.playbackRate = 1;
       }
     });
   }, []);
